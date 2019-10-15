@@ -1,0 +1,2 @@
+files can be removed using "rm {filename} such as rm garbage.txt
+directories can be removed using rm -r {directory}

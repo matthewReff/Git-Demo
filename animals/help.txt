@@ -1,0 +1,2 @@
+the cat image be viewed by using "cat catImage.txt"
+the dog script can be made to talk by using chmod +x dog.sh and then running with ./dog.sh

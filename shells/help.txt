@@ -1,0 +1,2 @@
+you can find the rock by using grep, "grep {textToFind} {files}"
+here you can do "grep rock *.*" or "grep rock shell*.txt"
