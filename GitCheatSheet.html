@@ -1,0 +1,181 @@
+<html>
+<title>Git/Linux Cheat Sheet</title>
+<body>
+<h1>Git/Linux Cheat Sheet</h1>
+<hr>
+<h2><b>Linux:</b></h3>
+<h3><u>Navigating Around</u></h3>
+<pre>
+% ls
+
+This will display the files in your current directory
+ls has many additonal flags, one of which is -a, <b>"ls -a"</b> will display all file in current directory, included hidden ones.
+Another is <b>"ls -l"</b> which displays metadata information as well as the file names
+
+% cd
+
+This will move you to your home directory, this is the same location as "~".
+
+% cd <b>{path}</b>
+
+This will change your current directory to the given path.
+
+% cat <b>{filename}</b>
+
+This will display the contents of a file in the console window.
+
+% mkdir <b>{path}</b>
+
+This will make a new directory at the given path.
+
+% pwd
+
+This will print your current working directory, which is where you currently are.
+</pre>
+<h3><u>Special Paths</u></h3>
+<pre>
+% ..
+
+".." is a special name for the parent of the current directory, so "cd .." will move you up one file.
+
+% .
+
+"." is a special name for your current directory, so you can endlessly "cd ." and move nowhere.
+
+% ~
+
+"~" is a special name for your home directory and is the implied argument in an empty cd
+This is where the files you think of as yours will usually be located.
+</pre>
+
+<h3><u>Manipulating Files</u></h3>
+<pre>
+% cp <b>{sourceFileName}</b> <b>{destFileName}</b>
+
+cp will copy a file from a source to a destination
+
+% touch <b>{filename}</b>
+
+touch will update the "most recently used" timestamp of a file, and create a blank file with that name if one doesn't already exist
+
+
+</pre>
+</pre>
+<!-- Shamelessly Stolen from https://www.cse.sdsmt.edu/csc315/ and Professor Paul Hinker -->
+<h2><b>Git:</b></h3>
+<h3><u>Create Repository</u></h3>
+<pre>
+This will create a copy (or <i>clone</i>) of a repository on the school's
+gitlab server.
+
+% git clone git@gitlab.mcs.sdsmt.edu:<b>username</b>/project_name.git
+
+Where <b>username</b> is the gitlab username or group on gitlab.mcs.sdsmt.edu
+      <b>project_name.git</b> is the project name on gitlab.mcs.sdsmt.edu
+
+EX: % git clone https://github.com/matthewReff/Git-Demo
+
+% git clone <b>{URI}</b>.git
+
+Where <b>{URI}</b> is the link for a non mcs repository.
+
+% git init 
+
+This will create a new local repository which is rooted in the current 
+directory.  Keep in mind this repository is only local.
+</pre>
+<p>
+<h3><u>Commands for local changes</u></h3>
+<pre>
+See the changed (added, deleted, moved, etc.) files in your working directory
+
+% git status
+
+See changes to the files that git is tracking
+
+% git diff
+
+Add all current untracked files / changes to the next commit.  This can be
+problematic if you have files which should not be added to the repository.
+This includes: binary files, object files, generated files, editor backup
+files, etc.
+
+% git add .
+
+Add the changes in <i>filename</i> to the next commit
+
+% git add <b>filename</b>
+
+Commit all local changes in the tracked files
+
+% git commit -a
+
+Commit previously staged changes
+
+% git commit
+
+Make a change to the last commit.  Note: <b>Do not</b> amend commits which have
+been <i>git push</i>ed to a remote repository.
+
+% git commit --amend
+</pre>
+<h3><u>Commit History</u></h3>
+<pre>
+Show all commits, starting with the newest
+
+% git log
+
+Show changes over time for a specific <b>filename</b>
+
+% git log -p <b>filename</b>
+
+Indicate who changed what and when in <b>filename</b>
+
+% git blame <b>filename</b>
+</pre>
+<h3><u>Update and Publish (push)</u></h3>
+<pre>
+List all currently configured remotes (we usually only use a single remote)
+
+% git remote -v
+
+Show information about a remote
+
+% git remote show <b>remote name</b>
+
+   Where <b>remote name</b> is the remote repository <i>git@gitlab.mcs.sdsmt.edu:username/projectname.git</i>
+
+Download changes and merge/integrate them into <b>HEAD</b>
+
+% git pull
+
+Publish local changes on the remote
+
+% git push
+</pre>
+<h3><u>Commands to undo or fix something</u></h3>
+<pre>
+Discard all local changes in your working directory
+
+% git reset --hard HEAD
+
+Discard local changes in a specific <b>file</b>
+
+% git checkout <b>file</b>
+
+or
+
+% git checkout HEAD <b>file</b>
+
+Revert a commit (this is done by producing a new commit with contrary changes)
+
+% git revert <b>commit</b>
+
+   Where <b>commit</b> is a previous commit hash
+
+Reset your HEAD pointer to a previous <b>commit</b> (this discards all changes since that previous commit)
+
+% git reset --hard <b>commit</b>
+</pre>
+</body>
+</html>
